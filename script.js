@@ -9,10 +9,9 @@ You normally only need to edit this file.
 const SITE = {
   email: "tsvisuals.info@gmail.com",
 
-  socials: {
-    instagram: "https://www.instagram.com/ts.visuals1/",
-    tiktok: "https://www.tiktok.com/@tsvisuals.uk1?lang=en-GB"
-  },
+socials: {
+  tiktok: "https://www.tiktok.com/@tsvisuals.uk1?lang=en-GB"
+},
 
   // Portfolio status options:
   // "available", "booked", "coming-soon", "private"
@@ -93,7 +92,6 @@ function footerHTML() {
           <div class="footer-col">
             <div class="footer-title">Socials</div>
             <div class="social-list">
-              <a href="${SITE.socials.instagram}" target="_blank" rel="noopener">Instagram</a>
               <a href="${SITE.socials.tiktok}" target="_blank" rel="noopener">TikTok</a>
             </div>
           </div>
