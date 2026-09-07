@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book a Shoot | TS Visuals</title>
+  <meta name="description" content="Book a photography session with TS Visuals.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="site-header"></div>
+
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <span class="eyebrow">BOOKING</span>
+        <h1>Book a Shoot</h1>
+        <p>Tell me what you have in mind and I'll get back to you.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container booking-layout">
+        <div>
+          <span class="eyebrow">MAKE AN ENQUIRY</span>
+          <h2>Let's plan your shoot.</h2>
+          <p class="lead">Fill in the form and your email app will open with the enquiry ready to send.</p>
+          <div class="contact-card">
+            <strong>Email</strong>
+            <a id="booking-email" href="#"></a>
+          </div>
+        </div>
+
+        <form id="booking-form" class="booking-form">
+          <label>Name<input name="name" type="text" placeholder="Your name" required></label>
+          <label>Email<input name="email" type="email" placeholder="you@example.com" required></label>
+          <label>Type of shoot
+            <select name="shoot">
+              <option>Portrait</option>
+              <option>Event</option>
+              <option>Sports</option>
+              <option>Automotive</option>
+              <option>Other</option>
+            </select>
+          </label>
+          <label>Preferred date<input name="date" type="date"></label>
+          <label>Message<textarea name="message" rows="6" placeholder="Tell me about the shoot..."></textarea></label>
+          <button class="btn btn-primary" type="submit">Send Enquiry</button>
+          <p class="form-note">This form opens your normal email app; no paid form service is required.</p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+  <script src="script.js"></script>
+</body>
+</html>

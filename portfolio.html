@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio | TS Visuals</title>
+  <meta name="description" content="TS Visuals photography portfolio.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="site-header"></div>
+
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <span class="eyebrow">TS VISUALS</span>
+        <h1>Portfolio</h1>
+        <p>A selection of recent work and favourite shots.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="filter-row">
+          <button class="filter active" data-filter="all">All</button>
+          <button class="filter" data-filter="available">Available</button>
+          <button class="filter" data-filter="booked">Booked</button>
+          <button class="filter" data-filter="coming-soon">Coming Soon</button>
+        </div>
+        <div id="full-portfolio" class="portfolio-grid portfolio-large"></div>
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+  <script src="script.js"></script>
+</body>
+</html>
