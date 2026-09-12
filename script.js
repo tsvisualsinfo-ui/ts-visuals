@@ -160,19 +160,118 @@ function setupBookingForm() {
   const form = document.getElementById("booking-form");
   if (!form) return;
 
+  const stepOne = document.getElementById("booking-step-1");
+  const stepTwo = document.getElementById("booking-step-2");
+  const nextButton = document.getElementById("next-booking-step");
+  const backButton = document.getElementById("back-booking-step");
+  const summary = document.getElementById("booking-summary");
+  const packageSelect = document.getElementById("booking-package");
+  const dateInput = document.getElementById("booking-date");
+
+  function getMinimumDate(hoursAhead) {
+    const date = new Date();
+    date.setHours(date.getHours() + hoursAhead);
+
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, "0");
+    const day = String(date.getDate()).padStart(2, "0");
+
+    return `${year}-${month}-${day}`;
+  }
+
+  function updateDateRule() {
+    if (!packageSelect || !dateInput) return;
+
+    if (packageSelect.value === "Deluxe Priority") {
+      dateInput.min = getMinimumDate(48);
+    } else {
+      dateInput.min = getMinimumDate(168);
+    }
+  }
+
+  packageSelect.addEventListener("change", updateDateRule);
+  updateDateRule();
+
+  nextButton.addEventListener("click", () => {
+    const requiredFields = stepOne.querySelectorAll("input[required], select[required], textarea[required]");
+
+    for (const field of requiredFields) {
+      if (!field.checkValidity()) {
+        field.reportValidity();
+        return;
+      }
+    }
+
+    const startTime = form.elements["start-time"].value;
+    const endTime = form.elements["end-time"].value;
+
+    if (endTime <= startTime) {
+      alert("The latest arrival time must be after the earliest arrival time.");
+      return;
+    }
+
+    const selectedDate = new Date(`${dateInput.value}T00:00:00`);
+    const minimumDate = new Date(`${dateInput.min}T00:00:00`);
+
+    if (selectedDate < minimumDate) {
+      alert(
+        packageSelect.value === "Deluxe Priority"
+          ? "Deluxe bookings require at least 48 hours’ notice."
+          : "Standard bookings require at least 7 days’ notice."
+      );
+      return;
+    }
+
+    summary.innerHTML = `
+      <h4>Booking summary</h4>
+      <p><strong>Shoot:</strong> ${form.elements["shoot"].value}</p>
+      <p><strong>Package:</strong> ${packageSelect.value}</p>
+      <p><strong>Date:</strong> ${dateInput.value}</p>
+      <p><strong>Arrival window:</strong> ${startTime}–${endTime}</p>
+      <p><strong>Location:</strong> ${form.elements["location"].value}</p>
+      ${packageSelect.value === "Deluxe Priority"
+        ? "<p><strong>Priority fee:</strong> £10</p>"
+        : ""}
+    `;
+
+    stepOne.hidden = true;
+    stepTwo.hidden = false;
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+
+  backButton.addEventListener("click", () => {
+    stepTwo.hidden = true;
+    stepOne.hidden = false;
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+
   form.addEventListener("submit", (event) => {
     event.preventDefault();
 
     const data = new FormData(form);
-    const subject = `TS Visuals Booking Enquiry - ${data.get("shoot")}`;
-    const body =
-`Name: ${data.get("name")}
-Email: ${data.get("email")}
-Type of shoot: ${data.get("shoot")}
-Preferred date: ${data.get("date") || "Not specified"}
 
-Message:
-${data.get("message") || "No message provided."}`;
+    const subject = `TS Visuals Booking Enquiry - ${data.get("shoot")}`;
+
+    const body = `
+TS VISUALS BOOKING ENQUIRY
+
+Name: ${data.get("name")}
+Email: ${data.get("email")}
+Phone: ${data.get("phone")}
+
+Type of shoot: ${data.get("shoot")}
+Package: ${data.get("package")}
+Priority fee: ${data.get("package") === "Deluxe Priority" ? "£10" : "£0"}
+
+Preferred date: ${data.get("date")}
+Arrival time-frame: ${data.get("start-time")}–${data.get("end-time")}
+Location: ${data.get("location")}
+
+Shoot details:
+${data.get("message") || "No additional details provided."}
+
+STATUS: Pending confirmation
+    `.trim();
 
     window.location.href =
       `mailto:${SITE.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
