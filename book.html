@@ -33,21 +33,108 @@
         </div>
 
         <form id="booking-form" class="booking-form">
-          <label>Name<input name="name" type="text" placeholder="Your name" required></label>
-          <label>Email<input name="email" type="email" placeholder="you@example.com" required></label>
-          <label>Type of shoot
-            <select name="shoot">
-              <option>Portrait</option>
-              <option>Event</option>
-              <option>Sports</option>
-              <option>Automotive</option>
-              <option>Other</option>
-            </select>
-          </label>
-          <label>Preferred date<input name="date" type="date"></label>
-          <label>Message<textarea name="message" rows="6" placeholder="Tell me about the shoot..."></textarea></label>
-          <button class="btn btn-primary" type="submit">Send Enquiry</button>
-          <p class="form-note">This form opens your normal email app; no paid form service is required.</p>
+
+  <!-- PAGE 1 -->
+  <div class="booking-step" id="booking-step-1">
+
+    <h3>1. Shoot details</h3>
+
+    <label>
+      Type of shoot
+      <select name="shoot" required>
+        <option value="">Choose a shoot type</option>
+        <option>Portraits</option>
+        <option>Events</option>
+        <option>Birthday Party</option>
+        <option>Special Occasion</option>
+        <option>Automotive</option>
+        <option>Business / Promotional</option>
+        <option>Sports</option>
+        <option>Other</option>
+      </select>
+    </label>
+
+    <label>
+      Booking package
+      <select name="package" id="booking-package" required>
+        <option value="">Choose a package</option>
+        <option value="Standard">Standard — minimum 7 days’ notice</option>
+        <option value="Deluxe Priority">Deluxe Priority — £10 fee, minimum 48 hours’ notice</option>
+      </select>
+    </label>
+
+    <label>
+      Preferred date
+      <input type="date" name="date" id="booking-date" required>
+    </label>
+
+    <div class="time-row">
+      <label>
+        Earliest arrival time
+        <input type="time" name="start-time" required>
+      </label>
+
+      <label>
+        Latest arrival time
+        <input type="time" name="end-time" required>
+      </label>
+    </div>
+
+    <label>
+      Shoot location
+      <input type="text" name="location" placeholder="Where should I arrive?" required>
+    </label>
+
+    <label>
+      Tell me about the shoot
+      <textarea name="message" rows="5" placeholder="Tell me what you have planned..."></textarea>
+    </label>
+
+    <button type="button" class="btn btn-primary" id="next-booking-step">
+      Continue →
+    </button>
+
+  </div>
+
+  <!-- PAGE 2 -->
+  <div class="booking-step" id="booking-step-2" hidden>
+
+    <h3>2. Your details</h3>
+
+    <label>
+      Full name
+      <input type="text" name="name" placeholder="Your full name" required>
+    </label>
+
+    <label>
+      Email address
+      <input type="email" name="email" placeholder="you@example.com" required>
+    </label>
+
+    <label>
+      Phone number
+      <input type="tel" name="phone" placeholder="Your phone number" required>
+    </label>
+
+    <div class="booking-summary" id="booking-summary"></div>
+
+    <div class="time-row">
+      <button type="button" class="btn" id="back-booking-step">
+        ← Back
+      </button>
+
+      <button class="btn btn-primary" type="submit">
+        Send Booking Enquiry
+      </button>
+    </div>
+
+  </div>
+
+  <p class="form-note">
+    Your booking is only a request until TS Visuals confirms it.
+  </p>
+
+</form>
         </form>
       </div>
     </section>
