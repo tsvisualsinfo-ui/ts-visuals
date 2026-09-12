@@ -481,4 +481,30 @@ h2 {
 
   .footer-bottom { flex-direction: column; }
 }
+.booking-step[hidden] {
+  display: none;
+}
 
+.time-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.booking-summary {
+  margin: 20px 0;
+  padding: 18px;
+  border: 1px solid rgba(160, 90, 255, 0.45);
+  border-radius: 12px;
+  background: rgba(100, 50, 160, 0.08);
+}
+
+.booking-summary h4 {
+  margin-top: 0;
+}
+
+@media (max-width: 600px) {
+  .time-row {
+    grid-template-columns: 1fr;
+  }
+}
