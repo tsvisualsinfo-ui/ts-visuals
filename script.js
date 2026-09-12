@@ -244,55 +244,68 @@ function setupBookingForm() {
     stepOne.hidden = false;
     window.scrollTo({ top: 0, behavior: "smooth" });
   });
-    form.addEventListener("submit", async (event) => {
-    event.preventDefault();
 
-    const submitButton = form.querySelector('button[type="submit"]');
-    if (submitButton) {
-      submitButton.disabled = true;
-      submitButton.textContent = "Sending booking...";
-    }
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
 
     const data = new FormData(form);
 
-    const booking = {
-      name: data.get("name"),
-      email: data.get("email"),
-      phone: data.get("phone"),
-      shoot: data.get("shoot"),
-      package: data.get("package"),
-      date: data.get("date"),
-      startTime: data.get("start-time"),
-      endTime: data.get("end-time"),
-      location: data.get("location"),
-      message: data.get("message") || "",
-      status: "Pending",
-      createdAt: new Date().toISOString()
-    };
+    const subject = `TS Visuals Booking Enquiry - ${data.get("shoot")}`;
 
-    try {
-      await db.collection("bookings").add(booking);
+    const body = `
+TS VISUALS BOOKING ENQUIRY
 
-      alert(
-        "Your booking request has been sent successfully. " +
-        "TS Visuals will review it and contact you."
-      );
+Name: ${data.get("name")}
+Email: ${data.get("email")}
+Phone: ${data.get("phone")}
 
-      form.reset();
-      stepTwo.hidden = true;
-      stepOne.hidden = false;
-    } catch (error) {
-      console.error("Booking submission error:", error);
+Type of shoot: ${data.get("shoot")}
+Package: ${data.get("package")}
+Priority fee: ${data.get("package") === "Deluxe Priority" ? "£10" : "£0"}
 
-      alert(
-        "Sorry, your booking could not be sent. " +
-        "Please try again or email TS Visuals directly."
-      );
-    } finally {
-      if (submitButton) {
-        submitButton.disabled = false;
-        submitButton.textContent = "Confirm Booking Request";
-      }
-    }
+Preferred date: ${data.get("date")}
+Arrival time-frame: ${data.get("start-time")}–${data.get("end-time")}
+Location: ${data.get("location")}
+
+Shoot details:
+${data.get("message") || "No additional details provided."}
+
+STATUS: Pending confirmation
+    `.trim();
+
+    window.location.href =
+      `mailto:${SITE.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   });
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  const header = document.getElementById("site-header");
+  const footer = document.getElementById("site-footer");
+
+  if (header) header.innerHTML = headerHTML();
+  if (footer) footer.innerHTML = footerHTML();
+
+  const emailElements = [
+    document.getElementById("footer-email"),
+    document.getElementById("booking-email")
+  ];
+
+  emailElements.forEach(element => {
+    if (!element) return;
+    element.textContent = SITE.email;
+    element.href = `mailto:${SITE.email}`;
+  });
+
+  renderPortfolio("home-portfolio", SITE.portfolio.slice(0, 6));
+  renderPortfolio("full-portfolio", SITE.portfolio);
+
+  setupFilters();
+  setupBookingForm();
+
+  const menuButton = document.getElementById("menu-button");
+  const nav = document.getElementById("nav-links");
+
+  if (menuButton && nav) {
+    menuButton.addEventListener("click", () => nav.classList.toggle("open"));
+  }
 });
