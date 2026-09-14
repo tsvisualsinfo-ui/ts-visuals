@@ -14,43 +14,43 @@ socials: {
 },
 
   // Portfolio status options:
-  // "available", "booked", "coming-soon", "private"
+  // "available", "booked", "coming-soon", "private",
   portfolio: [
     {
       image: "images/photo1.jpg",
       title: "Summer Shoot",
       category: "Portraits",
-      status: "unavailable"
+      status: "coming-soon"
     },
     {
       image: "images/photo2.jpg",
       title: "Event Coverage",
       category: "Events",
-      status: "unavailable"
+      status: "coming-soon"
     },
     {
       image: "images/photo3.jpg",
       title: "Sports Session",
       category: "Sports",
-      status: "unavailable"
+      status: "coming-soon"
     },
     {
       image: "images/photo4.jpg",
       title: "Automotive",
       category: "Automotive",
-      status: "unavailable"
+      status: "coming-soon"
     },
     {
       image: "images/photo5.jpg",
       title: "Portrait Session",
       category: "Portraits",
-      status: "private"
+      status: "unavailable"
     },
     {
       image: "images/photo6.jpg",
       title: "Latest Work",
       category: "Events",
-      status: "unavailable"
+      status: "coming-soon"
     }
   ]
 };
