@@ -508,3 +508,35 @@ h2 {
     grid-template-columns: 1fr;
   }
 }
+.booking-paused {
+max-width: 650px;
+margin: 40px auto;
+padding: 45px 30px;
+text-align: center;
+background: #111111;
+border: 1px solid #333333;
+border-radius: 16px;
+color: white;
+}
+
+.booking-paused-icon {
+font-size: 48px;
+margin-bottom: 15px;
+}
+
+.booking-paused h2 {
+margin-bottom: 15px;
+font-size: 28px;
+}
+
+.booking-paused p {
+color: #cccccc;
+line-height: 1.6;
+}
+
+.booking-paused-highlight {
+color: #a855f7 !important;
+font-weight: bold;
+font-size: 18px;
+}
+
