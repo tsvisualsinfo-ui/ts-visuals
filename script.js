@@ -3,9 +3,9 @@ const SITE = {
   email: 'help.tsvisuals@outlook.com',
   tiktok: 'https://www.tiktok.com/@tsvisuals.uk1?lang=en-GB',
   emailjs: {
-    publicKey: 'YOUR_EMAILJS_PUBLIC_KEY',
-    serviceId: 'YOUR_EMAILJS_SERVICE_ID',
-    templateId: 'YOUR_EMAILJS_TEMPLATE_ID'
+    publicKey: 'fw__wi-9TNHw2djjO',
+    serviceId: 'service_16o9es7',
+    templateId: 'template_zgozh2n'
   },
   portfolio: [
     { image: 'images/photo1.jpg', title: 'Summer Shoot', category: 'Portraits' },
