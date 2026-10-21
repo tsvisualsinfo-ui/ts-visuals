@@ -1,6 +1,6 @@
 /* TS Visuals site settings. Add your EmailJS keys below before publishing the booking form. */
 const SITE = {
-  email: 'help.tsvisuals@outlook.com',
+  email: 'tsvisuals.info@gmail.com',
   tiktok: 'https://www.tiktok.com/@tsvisuals.uk1?lang=en-GB',
   emailjs: {
     publicKey: 'YOUR_EMAILJS_PUBLIC_KEY',
