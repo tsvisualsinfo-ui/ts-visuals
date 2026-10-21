@@ -132,14 +132,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
       status.className = 'form-status show';
 
-      if (!ready) {
-        status.classList.add('error');
-        status.textContent =
-          'The enquiry form is not connected yet. Please check the EmailJS keys in script.js.';
-        return;
-      }
+if (!ready) {
+  status.classList.add('error');
+  status.textContent =
+    'The enquiry form is not connected yet. Please check the EmailJS keys in script.js.';
+  return;
+}
 
-      submit.disabled = true;
+// Initialise EmailJS with your actual Public Key.
+window.emailjs.init({
+  publicKey: cfg.publicKey
+});
+
+submit.disabled = true;
       submit.textContent = 'Sending enquiry…';
 
       try {
