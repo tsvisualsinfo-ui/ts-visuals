@@ -10,7 +10,7 @@ const SITE = {
     publicKey: 'fw__wi-9TNHw2djjO',
     serviceId: 'service_16o9es7',
     templateId: 'template_zgozh2n',
-    autoReplyTemplateId: 'fw__wi-9TNHw2djjO'
+    autoReplyTemplateId: 'template_d6c2omu'
   },
 
   portfolio: [
