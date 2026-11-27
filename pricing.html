@@ -1,0 +1,552 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Pricing | TS Visuals</title>
+
+  <meta name="description"
+        content="TS Visuals photography pricing — professional photography for portraits, events and special occasions.">
+
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    body {
+      margin: 0;
+      background: #050505;
+      color: #fff;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .pricing-hero {
+      text-align: center;
+      padding: 100px 20px 60px;
+      background:
+        radial-gradient(circle at top, rgba(130, 60, 255, 0.18), transparent 55%);
+    }
+
+    .pricing-hero h1 {
+      font-size: 48px;
+      margin-bottom: 15px;
+      letter-spacing: 1px;
+    }
+
+    .pricing-hero h1 span {
+      color: #9b5cff;
+    }
+
+    .pricing-hero p {
+      max-width: 650px;
+      margin: auto;
+      color: #bdbdbd;
+      font-size: 17px;
+      line-height: 1.6;
+    }
+
+    .pricing-section {
+      max-width: 1200px;
+      margin: auto;
+      padding: 60px 20px;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .section-title h2 {
+      font-size: 30px;
+      margin-bottom: 10px;
+    }
+
+    .section-title p {
+      color: #999;
+    }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+    }
+
+    .price-card {
+      background: linear-gradient(145deg, #111111, #080808);
+      border: 1px solid #292929;
+      border-radius: 18px;
+      padding: 30px;
+      position: relative;
+      transition: 0.3s ease;
+      box-shadow: 0 0 30px rgba(130, 60, 255, 0.04);
+    }
+
+    .price-card:hover {
+      transform: translateY(-5px);
+      border-color: #8d4fff;
+      box-shadow: 0 0 35px rgba(130, 60, 255, 0.15);
+    }
+
+    .price-card.featured {
+      border-color: #9b5cff;
+      box-shadow: 0 0 35px rgba(130, 60, 255, 0.12);
+    }
+
+    .badge {
+      position: absolute;
+      top: -13px;
+      right: 20px;
+      background: #9b5cff;
+      color: white;
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: bold;
+      letter-spacing: 0.5px;
+    }
+
+    .price-card h3 {
+      font-size: 22px;
+      margin-top: 0;
+    }
+
+    .price {
+      font-size: 34px;
+      font-weight: bold;
+      margin: 18px 0;
+    }
+
+    .price span {
+      font-size: 14px;
+      color: #999;
+      font-weight: normal;
+    }
+
+    .price-card p {
+      color: #aaa;
+      line-height: 1.6;
+      min-height: 55px;
+    }
+
+    .features {
+      list-style: none;
+      padding: 0;
+      margin: 25px 0;
+    }
+
+    .features li {
+      margin: 12px 0;
+      color: #ddd;
+    }
+
+    .features li::before {
+      content: "✓";
+      color: #a263ff;
+      font-weight: bold;
+      margin-right: 10px;
+    }
+
+    .price-button {
+      display: block;
+      text-align: center;
+      text-decoration: none;
+      background: #9b5cff;
+      color: white;
+      padding: 13px 20px;
+      border-radius: 8px;
+      font-weight: bold;
+      transition: 0.2s;
+    }
+
+    .price-button:hover {
+      background: #b17aff;
+      transform: translateY(-1px);
+    }
+
+    .hourly {
+      max-width: 700px;
+      margin: auto;
+    }
+
+    .hour-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #101010;
+      border: 1px solid #292929;
+      border-radius: 12px;
+      padding: 18px 22px;
+      margin-bottom: 12px;
+    }
+
+    .hour-row span:first-child {
+      color: #ddd;
+    }
+
+    .hour-row span:last-child {
+      color: #b17aff;
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .note {
+      text-align: center;
+      color: #888;
+      font-size: 14px;
+      margin-top: 30px;
+      line-height: 1.6;
+    }
+
+    .cta {
+      text-align: center;
+      padding: 80px 20px;
+      background:
+        radial-gradient(circle at center, rgba(130, 60, 255, 0.14), transparent 60%);
+    }
+
+    .cta h2 {
+      font-size: 32px;
+      margin-bottom: 15px;
+    }
+
+    .cta p {
+      color: #aaa;
+      max-width: 600px;
+      margin: 0 auto 25px;
+      line-height: 1.6;
+    }
+
+    .cta-button {
+      display: inline-block;
+      background: #9b5cff;
+      color: white;
+      text-decoration: none;
+      padding: 14px 28px;
+      border-radius: 8px;
+      font-weight: bold;
+    }
+
+    @media (max-width: 600px) {
+      .pricing-hero h1 {
+        font-size: 36px;
+      }
+
+      .pricing-section {
+        padding: 45px 15px;
+      }
+
+      .hour-row {
+        padding: 15px;
+      }
+    }
+  </style>
+</head>
+
+<body data-page="pricing">
+
+  <!-- Your existing website header -->
+  <div id="site-header"></div>
+
+  <main>
+
+    <!-- HERO -->
+    <section class="pricing-hero">
+      <h1>TS <span>Visuals</span> Pricing</h1>
+
+      <p>
+        Professional photography packages designed to capture your
+        moments, memories and occasions.
+      </p>
+    </section>
+
+
+    <!-- PACKAGES -->
+    <section class="pricing-section">
+
+      <div class="section-title">
+        <h2>Photography Packages</h2>
+        <p>Choose the package that works best for your shoot.</p>
+      </div>
+
+      <div class="pricing-grid">
+
+        <!-- PORTRAIT -->
+        <div class="price-card">
+          <h3>Portrait Session</h3>
+
+          <div class="price">
+            £35 <span>/ session</span>
+          </div>
+
+          <p>
+            A relaxed photography session for individual portraits,
+            social media photos and personal shoots.
+          </p>
+
+          <ul class="features">
+            <li>Up to 1 hour</li>
+            <li>1 person</li>
+            <li>Professional editing</li>
+            <li>Digital images</li>
+          </ul>
+
+          <a href="booking.html" class="price-button">
+            Book a Shoot
+          </a>
+        </div>
+
+
+        <!-- STANDARD -->
+        <div class="price-card featured">
+
+          <div class="badge">POPULAR</div>
+
+          <h3>Standard Shoot</h3>
+
+          <div class="price">
+            £60 <span>/ session</span>
+          </div>
+
+          <p>
+            Perfect for events, groups, celebrations and
+            more detailed photography sessions.
+          </p>
+
+          <ul class="features">
+            <li>Up to 2 hours</li>
+            <li>Up to 5 people</li>
+            <li>Professional editing</li>
+            <li>Digital image gallery</li>
+            <li>High-resolution images</li>
+          </ul>
+
+          <a href="booking.html" class="price-button">
+            Book a Shoot
+          </a>
+        </div>
+
+
+        <!-- EVENT -->
+        <div class="price-card">
+
+          <h3>Event Photography</h3>
+
+          <div class="price">
+            £90 <span>/ event</span>
+          </div>
+
+          <p>
+            Photography coverage for birthdays, school events,
+            celebrations and other occasions.
+          </p>
+
+          <ul class="features">
+            <li>Up to 3 hours</li>
+            <li>Event coverage</li>
+            <li>Candid photography</li>
+            <li>Professional editing</li>
+            <li>Digital gallery</li>
+          </ul>
+
+          <a href="booking.html" class="price-button">
+            Book an Event
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- HOURLY -->
+    <section class="pricing-section">
+
+      <div class="section-title">
+        <h2>Hourly Photography</h2>
+        <p>Need something more flexible? Pay by the hour.</p>
+      </div>
+
+      <div class="hourly">
+
+        <div class="hour-row">
+          <span>1 Hour</span>
+          <span>£35</span>
+        </div>
+
+        <div class="hour-row">
+          <span>2 Hours</span>
+          <span>£60</span>
+        </div>
+
+        <div class="hour-row">
+          <span>3 Hours</span>
+          <span>£90</span>
+        </div>
+
+        <div class="hour-row">
+          <span>4 Hours</span>
+          <span>£115</span>
+        </div>
+
+        <div class="hour-row">
+          <span>5 Hours</span>
+          <span>£140</span>
+        </div>
+
+      </div>
+
+      <p class="note">
+        Longer bookings can be discussed depending on the event
+        and requirements.
+      </p>
+
+    </section>
+
+
+    <!-- SPECIAL OCCASIONS -->
+    <section class="pricing-section">
+
+      <div class="section-title">
+        <h2>Special Occasions</h2>
+
+        <p>
+          Photography for moments worth remembering.
+        </p>
+      </div>
+
+      <div class="pricing-grid">
+
+        <div class="price-card">
+          <h3>Birthdays</h3>
+
+          <div class="price">
+            From £60
+          </div>
+
+          <p>
+            Capture the important moments throughout your
+            birthday celebration.
+          </p>
+
+          <a href="booking.html" class="price-button">
+            Enquire
+          </a>
+        </div>
+
+
+        <div class="price-card">
+          <h3>Proms</h3>
+
+          <div class="price">
+            From £75
+          </div>
+
+          <p>
+            Professional arrival, group and individual
+            photography for your special night.
+          </p>
+
+          <a href="booking.html" class="price-button">
+            Enquire
+          </a>
+        </div>
+
+
+        <div class="price-card">
+          <h3>Other Events</h3>
+
+          <div class="price">
+            Custom Quote
+          </div>
+
+          <p>
+            Don't see what you're looking for?
+            Get in touch and we can create a package around your event.
+          </p>
+
+          <a href="booking.html" class="price-button">
+            Enquire
+          </a>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ADD-ONS -->
+    <section class="pricing-section">
+
+      <div class="section-title">
+        <h2>Extras</h2>
+        <p>Add additional services to your photography package.</p>
+      </div>
+
+      <div class="pricing-grid">
+
+        <div class="price-card">
+          <h3>Additional Editing</h3>
+
+          <div class="price">
+            +£10
+          </div>
+
+          <p>
+            Additional editing or image requests outside the
+            standard package.
+          </p>
+        </div>
+
+
+        <div class="price-card">
+          <h3>Extra Coverage</h3>
+
+          <div class="price">
+            From £25
+          </div>
+
+          <p>
+            Extend your photography coverage when you need
+            additional time.
+          </p>
+        </div>
+
+
+        <div class="price-card">
+          <h3>Custom Package</h3>
+
+          <div class="price">
+            Quote
+          </div>
+
+          <p>
+            Have something specific in mind?
+            A custom package can be arranged.
+          </p>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- CTA -->
+    <section class="cta">
+
+      <h2>Ready to book?</h2>
+
+      <p>
+        Tell us what you're looking for and we'll help create
+        the right photography package for you.
+      </p>
+
+      <a href="booking.html" class="cta-button">
+        Book a Shoot
+      </a>
+
+    </section>
+
+  </main>
+
+</body>
+</html>
+```
