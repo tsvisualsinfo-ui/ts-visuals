@@ -34,6 +34,7 @@ function header(active = '') {
           <a class="${active === 'home' ? 'active' : ''}" href="index.html">Home</a>
           <a class="${active === 'portfolio' ? 'active' : ''}" href="portfolio.html">Portfolio</a>
           <a class="${active === 'about' ? 'active' : ''}" href="about.html">About</a>
+          <a class="${active === 'pricing' ? 'active' : ''}" href="pricing.html">Pricing</a>
           <a class="nav-cta ${active === 'book' ? 'active' : ''}" href="book.html">Send an Enquiry ↗</a>
         </nav>
       </div>
@@ -52,6 +53,7 @@ function footer() {
           <div class="footer-links">
             <a href="portfolio.html">Portfolio</a>
             <a href="about.html">About</a>
+            <a href="pricing.html">Pricing</a>
             <a href="book.html">Send an enquiry</a>
             <a href="${SITE.tiktok}" target="_blank" rel="noopener">TikTok ↗</a>
             <a href="mailto:${SITE.email}">Email</a>
